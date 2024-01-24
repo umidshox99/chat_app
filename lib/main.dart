@@ -3,7 +3,9 @@ import 'package:chat_app/data/controllers/splash_controller.dart';
 import 'package:chat_app/data/utils/app_routes.dart';
 import 'package:chat_app/data/utils/init_controllers.dart';
 import 'package:chat_app/data/utils/messages.dart';
+import 'package:chat_app/firebase_options.dart';
 import 'package:chat_app/ui/pages/splash_page/splash_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,6 +15,9 @@ import 'package:get_storage/get_storage.dart';
 
 void main() async {
   await GetStorage.init();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   initControllers();
   runApp(MyApp());
 }

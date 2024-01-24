@@ -11,7 +11,6 @@ class LanguagePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     LocaleController controller = Get.find<LocaleController>();
-
     return Scaffold(
       appBar: AppBar(
         title: Text(LocaleKeys.selectLanguage.tr),

@@ -5,34 +5,33 @@ import 'package:chat_app/data/utils/locale_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     var controller = Get.find<FirebaseController>();
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(LocaleKeys.login.tr),
+        title: Text(LocaleKeys.registration.tr),
       ),
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           ElevatedButton(
             onPressed: () {
-              Get.offAllNamed(AppRoutes.registerPage);
+              Get.offAllNamed(AppRoutes.loginPage);
             },
             child: Text(
-              LocaleKeys.registration.tr,
+              LocaleKeys.login.tr,
             ),
           ),
           ElevatedButton(
             onPressed: () {
-              controller.login();
+              controller.register();
             },
             child: Text(
-              LocaleKeys.login.tr,
+              LocaleKeys.registration.tr,
             ),
           ),
         ],
@@ -61,9 +60,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             if (controller.isLoading.value)
-              Center(
-                child: CircularProgressIndicator(),
-              ),
+              Center(child: const CircularProgressIndicator())
           ],
         ),
       ),

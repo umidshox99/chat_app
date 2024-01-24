@@ -1,27 +1,29 @@
 import 'dart:ui';
 
+import 'package:chat_app/data/services/storage_service.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class LocaleController extends GetxController {
   var _locale = Get.deviceLocale!.obs;
-  GetStorage box = GetStorage();
+  final StorageService storageService;
+
+  LocaleController(this.storageService);
 
   Rx<Locale> get locale => _locale;
 
   changeLanguage(Locale locale) {
     // "uz_UZ"
     this._locale.value = locale;
-    box.write("locale", "${locale.languageCode}_${locale.countryCode}");
+    storageService.saveLanguage(locale);
     Get.updateLocale(locale);
   }
 
   @override
   void onInit() {
-    if (box.read("locale") != null) {
-      print(box.read("locale"));
-      String locale = box.read("locale");
-      _locale.value = Locale(locale.split("_")[0], locale.split("_")[1]);
+    var locale = storageService.getLanguage();
+    if (locale != null) {
+      _locale.value = locale;
     } else {
       _locale.value = Get.deviceLocale!;
     }
