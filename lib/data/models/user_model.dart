@@ -8,7 +8,7 @@ class UserModel {
   final String? refreshToken;
   final String? uid;
 
-  UserModel(
+  UserModel({
     this.displayName,
     this.email,
     this.emailVerified,
@@ -17,18 +17,18 @@ class UserModel {
     this.photoURL,
     this.refreshToken,
     this.uid,
-  );
+  });
 
-factory UserModel.fromJson(Map<String, dynamic> data) {
+  factory UserModel.fromJson(Map<String, dynamic> data) {
     return UserModel(
-      data["displayName"],
-      data["email"],
-      data["emailVerified"],
-      data["isAnonymous"],
-      data["phoneNumber"],
-      data["photoURL"],
-      data["refreshToken"],
-      data["uid"],
+      displayName: data["displayName"],
+      email: data["email"],
+      emailVerified: data["emailVerified"],
+      isAnonymous: data["isAnonymous"],
+      phoneNumber: data["phoneNumber"],
+      photoURL: data["photoURL"],
+      refreshToken: data["refreshToken"],
+      uid: data["uid"],
     );
   }
 
