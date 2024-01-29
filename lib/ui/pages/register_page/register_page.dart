@@ -1,5 +1,4 @@
-import 'package:chat_app/data/controllers/firebase_controller.dart';
-import 'package:chat_app/data/controllers/splash_controller.dart';
+import 'package:chat_app/data/controllers/user_controller.dart';
 import 'package:chat_app/data/utils/app_routes.dart';
 import 'package:chat_app/data/utils/locale_keys.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +9,7 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.find<FirebaseController>();
+    var controller = Get.find<UserController>();
     return Scaffold(
       appBar: AppBar(
         title: Text(LocaleKeys.registration.tr),

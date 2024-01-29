@@ -1,4 +1,4 @@
-import 'package:chat_app/data/controllers/firebase_controller.dart';
+import 'package:chat_app/data/controllers/chat_controller.dart';
 import 'package:chat_app/data/models/message_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -9,15 +9,18 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.find<FirebaseController>();
+    var controller = Get.find<ChatController>();
     return Scaffold(
       appBar: AppBar(
         actions: [
           IconButton(
-              onPressed: () {
-                controller.logOutUser();
-              },
-              icon: Icon(Icons.logout)),
+            onPressed: () {
+              controller.logOutUser();
+            },
+            icon: const Icon(
+              Icons.logout,
+            ),
+          ),
         ],
       ),
       body: Center(
@@ -39,10 +42,13 @@ class ChatPage extends StatelessWidget {
           ],
         ),
       ),
+
+      // body: Image.network(
+      //     "https://firebasestorage.googleapis.com/v0/b/chatapp-e20ef.appspot.com/o/image_2024-01-29_15-30-23.png?alt=media&token=2afffa01-4876-417e-bb75-faea21779d00"),
     );
   }
 
-  Widget buildBody(FirebaseController controller) {
+  Widget buildBody(ChatController controller) {
     return StreamBuilder(
       stream: controller.getAllMessages(),
       builder: (BuildContext context,
@@ -55,9 +61,7 @@ class ChatPage extends StatelessWidget {
             },
           );
 
-
           return ListView.builder(
-
             itemCount: data?.length ?? 0,
             itemBuilder: (context, index) {
               var message = data![index].data();

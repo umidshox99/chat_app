@@ -9,8 +9,11 @@ class MessageModel {
   MessageModel(this.user, this.dateTime, this.text);
 
   factory MessageModel.fromJson(Map<String, dynamic> data) {
-    return MessageModel(UserModel.fromJson(data["user"]),
-        data["dateTime"].toDate(), data["text"]);
+    return MessageModel(
+      UserModel.fromJson(data["user"]),
+      data["dateTime"].toDate(),
+      data["text"],
+    );
   }
 
   Map<String, dynamic> toJson() {
