@@ -34,12 +34,12 @@ class LanguagePage extends StatelessWidget {
               // ),
               TextButton(
                 onPressed: () {
-                  controller.changeLanguage(Locale("uz", "UZ"));
+                  controller.changeLanguage(Locale("uz"));
                 },
                 child: Text(
                   "UZ",
                   style: TextStyle(
-                    color: controller.locale == Locale("uz", "UZ")
+                    color: controller.locale.value.languageCode == Locale("uz").languageCode
                         ? Colors.red
                         : Colors.grey,
                   ),
@@ -47,12 +47,12 @@ class LanguagePage extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  controller.changeLanguage(Locale("en", "US"));
+                  controller.changeLanguage(Locale("en"));
                 },
                 child: Text(
                   "EN",
                   style: TextStyle(
-                    color: controller.locale == Locale("en", "US")
+                    color: controller.locale.value.languageCode  == Locale("en").languageCode
                         ? Colors.red
                         : Colors.grey,
                   ),
@@ -60,12 +60,12 @@ class LanguagePage extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  controller.changeLanguage(Locale("ru", "RU"));
+                  controller.changeLanguage(Locale("ru"));
                 },
                 child: Text(
                   "RU",
                   style: TextStyle(
-                    color: controller.locale == Locale("ru", "RU")
+                    color: controller.locale.value.languageCode  == Locale("ru").languageCode
                         ? Colors.red
                         : Colors.grey,
                   ),

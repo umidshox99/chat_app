@@ -5,14 +5,24 @@ class MessageModel {
   final UserModel user;
   final DateTime dateTime;
   final String text;
+  final String? file;
+  final bool? isRead;
 
-  MessageModel(this.user, this.dateTime, this.text);
+  MessageModel(
+    this.user,
+    this.dateTime,
+    this.text,
+    this.file,
+    this.isRead,
+  );
 
   factory MessageModel.fromJson(Map<String, dynamic> data) {
     return MessageModel(
       UserModel.fromJson(data["user"]),
       data["dateTime"].toDate(),
       data["text"],
+      data["file"],
+      data["isRead"],
     );
   }
 
@@ -21,6 +31,8 @@ class MessageModel {
       "user": user.toJson(),
       "dateTime": dateTime,
       "text": text,
+      "file": file,
+      "isRead": isRead,
     };
   }
 }

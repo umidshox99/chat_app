@@ -8,16 +8,6 @@ class UserService {
     final userCredential = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
 
-    // collectionReference = FirebaseFirestore.instance
-    //     .collection("users")
-    //     .withConverter<MessageModel>(
-    //   fromFirestore: (snapshots, _) =>
-    //       UserModel.fromJson(snapshots.data()!),
-    //   toFirestore: (movie, _) => movie.toJson(),
-    // );
-
-    // await updateDisplayName("DISPLAY NAME UPDATED");
-
     print(FirebaseAuth.instance.currentUser?.displayName);
     return userCredential;
   }

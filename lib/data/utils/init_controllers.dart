@@ -10,6 +10,6 @@ void initControllers() {
   /// permanent
   // Get.put(SplashController(), permanent: true);
   Get.put(LocaleController(StorageService()));
-  Get.put(ChatController(ChatService()));
+  // Get.put(ChatController(ChatService()));
   Get.put(UserController(UserService()));
 }

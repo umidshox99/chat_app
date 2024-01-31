@@ -25,7 +25,10 @@ class SplashController extends GetxController {
   startTimer() {
     Future.delayed(Duration(seconds: 3), () {
       if (userModel.value != null) {
-        Get.offNamed(AppRoutes.chatPage);
+        if (userModel.value?.displayName?.isEmpty ?? false)
+          Get.offNamed(AppRoutes.profilePage);
+        else
+          Get.offNamed(AppRoutes.chatPage);
       } else
         Get.offNamed(AppRoutes.languagePage);
 

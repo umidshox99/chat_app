@@ -7,7 +7,9 @@ import 'package:get/get.dart';
 
 class UserController extends GetxController {
   final UserService _userService;
+
   // final StorageService _storageService;
+
   TextEditingController textEditingController = TextEditingController();
 
   UserController(
@@ -16,7 +18,6 @@ class UserController extends GetxController {
   );
 
   var userModel = Rx<User?>(null);
-
 
   @override
   void onInit() async {
@@ -37,7 +38,7 @@ class UserController extends GetxController {
         emailController.text, passwordController.text);
     if (userCredential != null) {
       _isLoading.value = false;
-      Get.offAllNamed(AppRoutes.loginPage);
+      Get.offAllNamed(AppRoutes.profilePage);
       emailController.text = "";
       passwordController.text = "";
     }

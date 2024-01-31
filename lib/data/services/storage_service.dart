@@ -29,7 +29,7 @@ class StorageService {
   Locale? getLanguage() {
     String? locale = _box.read(_localeKey);
     if (locale != null) {
-      return Locale(locale.split("_")[0], locale.split("_")[1]);
+      return Locale(locale.split("_")[0]);
     } else {
       return null;
     }
